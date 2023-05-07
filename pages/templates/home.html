@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+         <div class="jumbotron mx-auto mt-5" style="max-height: fit-content; min-width: 400px; max-width: 500px">
+            <h1 class="display-4">Skype-Clone CN Project</h1>
+            <hr>
+            <h1>User May:</h1>
+            <ul class="ml-4">
+                <li>Add or Remove potential friends.</li>
+                <li>Cancel their pending friend requests.</li>
+                <li>They may also decline incoming friend requests.</li>
+            </ul>
+            <hr>
+            <h1 class="lead">Video Chat</h1>
+            <hr>
+            <h1>User May:</h1>
+            <ul class="ml-4">
+                <li>Initiate 1 to 1 Video chat rooms with their friends.</li>
+                <li>Create Group Video chat rooms.</li>
+            </ul>
+            <hr>
+            <h1 class="lead">Real-time Messaging</h1>
+            <hr>
+            <h1>User May:</h1>
+            <ul class="ml-4">
+                <li>Initiate 1 to 1 Direct Messaging with their friends.</li>
+                <li>Create / join Public Real-time chat rooms.</li>
+            </ul>
+        </div>
+    {% else %}
+         <div class="jumbotron mx-auto mt-5" style="max-height: fit-content; min-width: 400px; max-width: 500px">
+            <h1 class="display-4 mb-3">Skype-Clone</h1>
+            <h2 class="lead">Video Chat Application</h2>
+            <hr>
+            <p class="lead">The integrated friend system allows user to connect with their peers through video chat communication, and real-time text chat communication.</p>
+            <hr class="my-4">
+            <p class="mb-3" style="text-align: center;">Sign up to start now or login!</p>
+            <div class="row justify-content-center" style="text-align: center;">
+                <div class="col-xs-4 mr-4">
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'users:signup' %}" role="button">Sign up</a>
+                    </p>
+                </div>
+                <div class="col-xs-4 ml-4">   
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'users:login' %}" role="button">Sign in</a>
+                    </p>
+                </div>     
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}
